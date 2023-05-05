@@ -1,11 +1,17 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { SafeAreaView, View } from "react-native";
+// import SearchBar from "../../components/SearchBar";
+import NavigationBar from "../../components/SearchBar/NavigationBar";
 
 const HomeScreen = () => {
   return (
-    <View className="flex-1 items-center justify-center bg-[#212121]">
-      <Text className="text-white">HomeScreen</Text>
-    </View>
+    <SafeAreaView className="flex-1 items-center bg-[#121212]">
+      {/* <SearchBar placeholder={"Search"} /> */}
+
+      <View className="absolute bottom-0">
+        <NavigationBar />
+      </View>
+    </SafeAreaView>
   );
 };
 

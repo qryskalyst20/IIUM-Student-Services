@@ -3,21 +3,21 @@ import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 
 const NavigationBar = () => {
   return (
-    <View className="bg-white w-screen py-3 flex flex-row">
+    <View className="bg-[#212121] w-screen py-5 drop-shadow-2xl flex flex-row">
       <TouchableOpacity className="basis-1/3 items-center">
         <View>
-          <Text>Home</Text>
+          <Text className="text-white">Home</Text>
         </View>
       </TouchableOpacity>
 
       <TouchableOpacity className="basis-1/3 items-center">
         <View>
-          <Text>Messages</Text>
+          <Text className="text-white">Messages</Text>
         </View>
       </TouchableOpacity>
       <TouchableOpacity className="basis-1/3 items-center">
         <View>
-          <Text>Account</Text>
+          <Text className="text-white">Account</Text>
         </View>
       </TouchableOpacity>
     </View>

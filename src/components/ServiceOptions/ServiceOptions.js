@@ -7,7 +7,7 @@ import {
   StyleSheet,
   Image,
 } from "react-native";
-
+import { useNavigation } from "@react-navigation/native";
 import { Icon } from "@rneui/themed";
 import { useCallback } from "react";
 import { useFonts } from "expo-font";
@@ -31,6 +31,8 @@ const data = [
 ];
 
 const ServiceOptions = () => {
+  const navigation = useNavigations();
+
   const [fontsLoaded] = useFonts({
     "Uber-Bold": require("../../../assets/fonts/UberMoveBold.otf"),
     "Uber-Medium": require("../../../assets/fonts/UberMoveMedium.otf"),

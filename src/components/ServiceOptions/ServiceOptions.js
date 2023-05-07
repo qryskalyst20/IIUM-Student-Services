@@ -7,6 +7,8 @@ import {
   StyleSheet,
   Image,
 } from "react-native";
+
+import { Icon } from "@rneui/themed";
 import { useCallback } from "react";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
@@ -61,6 +63,9 @@ const ServiceOptions = () => {
             >
               {item.title}
             </Text>
+            <View className="bg-black p-2 rounded-full w-10 mt-4">
+              <Icon name="arrowright" color="white" type="antdesign" />
+            </View>
           </TouchableOpacity>
         )}
       />

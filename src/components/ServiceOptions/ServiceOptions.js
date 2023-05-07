@@ -1,28 +1,66 @@
 import React from "react";
-import { FlatList, View, Text, TouchableOpacity } from "react-native";
+import {
+  FlatList,
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  Image,
+} from "react-native";
+import { useCallback } from "react";
+import { useFonts } from "expo-font";
+import * as SplashScreen from "expo-splash-screen";
+
+SplashScreen.preventAutoHideAsync();
 
 const data = [
   {
     id: "1",
     title: "Transporter",
+    image: "https://links.papareact.com/3pn",
     screen: "transporter",
   },
   {
     id: "2",
     title: "Food Runner",
+    image: "https://links.papareact.com/28w",
     screen: "foodrunner",
   },
 ];
 
 const ServiceOptions = () => {
+  const [fontsLoaded] = useFonts({
+    "Uber-Bold": require("../../../assets/fonts/UberMoveBold.otf"),
+    "Uber-Medium": require("../../../assets/fonts/UberMoveMedium.otf"),
+  });
+
+  const onLayoutRootView = useCallback(async () => {
+    if (fontsLoaded) {
+      await SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded]);
+
+  if (!fontsLoaded) {
+    return null;
+  }
   return (
-    <View>
+    <View onLayout={onLayoutRootView}>
       <FlatList
         data={data}
         horizontal
+        keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
-          <TouchableOpacity>
-            <Text className="text-white">{item.title}</Text>
+          <TouchableOpacity className="p-2 pl-6 pb-8 pt-4 m-2 w-40 bg-[#212121]">
+            <Image
+              source={{ uri: item.image }}
+              style={{ width: 100, height: 100, resizeMode: "contain" }}
+            />
+            <Text
+              className="text-white mt-2"
+              style={{ fontFamily: "Uber-Bold" }}
+            >
+              {item.title}
+            </Text>
           </TouchableOpacity>
         )}
       />

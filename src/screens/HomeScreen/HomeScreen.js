@@ -3,10 +3,22 @@ import { SafeAreaView, View, Text, StyleSheet } from "react-native";
 // import SearchBar from "../../components/SearchBar";
 import NavigationBar from "../../components/SearchBar/NavigationBar";
 import ServiceOptions from "../../components/ServiceOptions/ServiceOptions";
-import { FontsSetup } from "../../FontsSetup";
+import { useCallback } from "react";
+import { useFonts } from "expo-font";
+import * as SplashScreen from "expo-splash-screen";
 
+SplashScreen.preventAutoHideAsync();
 const HomeScreen = () => {
-  const { onLayoutRootView, fontsLoaded } = FontsSetup();
+  const [fontsLoaded] = useFonts({
+    "Uber-Bold": require("../../assets/fonts/UberMoveBold.otf"),
+    "Uber-Medium": require("../../assets/fonts/UberMoveMedium.otf"),
+  });
+
+  const onLayoutRootView = useCallback(async () => {
+    if (fontsLoaded) {
+      await SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded]);
 
   if (!fontsLoaded) {
     return null;

@@ -6,8 +6,8 @@ export const useCustomScreenSetup = () => {
   SplashScreen.preventAutoHideAsync();
 
   const [fontsLoaded] = useFonts({
-    "Uber-Bold": require("../../../assets/fonts/UberMoveBold.otf"),
-    "Uber-Medium": require("../../../assets/fonts/UberMoveMedium.otf"),
+    "Uber-Bold": require("~/assets/fonts/UberMoveBold.otf"),
+    "Uber-Medium": require("~/assets/fonts/UberMoveMedium.otf"),
   });
 
   const onLayoutRootView = useCallback(async () => {
@@ -15,6 +15,10 @@ export const useCustomScreenSetup = () => {
       await SplashScreen.hideAsync();
     }
   }, [fontsLoaded]);
+
+  if (!fontsLoaded) {
+    return null;
+  }
 
   return { onLayoutRootView, fontsLoaded };
 };

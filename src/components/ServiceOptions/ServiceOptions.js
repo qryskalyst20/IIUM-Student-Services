@@ -20,18 +20,18 @@ const data = [
     id: "1",
     title: "Transporter",
     image: "https://links.papareact.com/3pn",
-    screen: "transporter",
+    screen: "transporterscreen",
   },
   {
     id: "2",
     title: "Food Runner",
     image: "https://links.papareact.com/28w",
-    screen: "foodrunner",
+    screen: "foodrunnerscreen",
   },
 ];
 
 const ServiceOptions = () => {
-  const navigation = useNavigations();
+  const navigation = useNavigation();
 
   const [fontsLoaded] = useFonts({
     "Uber-Bold": require("../../../assets/fonts/UberMoveBold.otf"),
@@ -54,7 +54,10 @@ const ServiceOptions = () => {
         horizontal
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
-          <TouchableOpacity className="p-2 pl-6 pb-8 pt-4 m-2 w-40 bg-[#212121]">
+          <TouchableOpacity
+            className="p-2 pl-6 pb-8 pt-4 m-2 w-40 bg-[#212121]"
+            onPress={() => navigation.navigate(item.screen)}
+          >
             <Image
               source={{ uri: item.image }}
               style={{ width: 100, height: 100, resizeMode: "contain" }}

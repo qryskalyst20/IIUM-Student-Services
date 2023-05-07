@@ -33,13 +33,13 @@ const HomeScreen = () => {
             style={{ fontFamily: "Uber-Bold" }}
             className="text-white text-2xl drop-shadow-2xl"
           >
-            Hello Danish!
+            IIUM Community Services
           </Text>
           <Text
             style={{ fontFamily: "Uber-Medium" }}
             className="text-white drop-shadow-2xl"
           >
-            Welcome back! You are missed!
+            By students, for students
           </Text>
         </View>
       </View>

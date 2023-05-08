@@ -58,23 +58,23 @@ const FeaturedRow = ({ id, title, description }) => {
       >
         <CafeCard
           imgUrl={"https://links.papareact.com/gn7"}
-          title={"Yo! Sushi"}
+          title={"Shawarma"}
         />
         <CafeCard
           imgUrl={"https://links.papareact.com/gn7"}
-          title={"Yo! Sushi"}
+          title={"Ayam Gepuk"}
         />
         <CafeCard
           imgUrl={"https://links.papareact.com/gn7"}
-          title={"Yo! Sushi"}
+          title={"Mi Tarik"}
         />
         <CafeCard
           imgUrl={"https://links.papareact.com/gn7"}
-          title={"Yo! Sushi"}
+          title={"Takoyaki"}
         />
         <CafeCard
           imgUrl={"https://links.papareact.com/gn7"}
-          title={"Yo! Sushi"}
+          title={"Roti Tampal"}
         />
       </ScrollView>
     </View>

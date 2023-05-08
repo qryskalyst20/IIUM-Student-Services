@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import {
   SafeAreaView,
   View,
@@ -14,10 +14,30 @@ import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import Categories from "../../components/Categories";
 import FeaturedRow from "../../components/FeaturedRow";
+import sanityClient from "../../../sanity";
 
 SplashScreen.preventAutoHideAsync();
 const HomeScreen = () => {
   const [refreshing, setRefreshing] = React.useState(false);
+  const [featuredCategories, setFeaturedCategories] = useState([]);
+
+  useEffect(() => {
+    sanityClient.fetch(
+      `
+    *[_type == "featured" && _id == $id]{
+      ...,
+      cafe[]->{
+        ...,
+        dishes[]->,
+        type->{
+          name
+        }
+      },
+    }[0]
+    `,
+      { id }
+    );
+  });
 
   const onRefresh = React.useCallback(() => {
     setRefreshing(true);

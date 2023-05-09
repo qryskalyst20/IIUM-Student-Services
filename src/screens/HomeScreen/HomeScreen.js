@@ -6,15 +6,15 @@ import {
   ScrollView,
   RefreshControl,
 } from "react-native";
-// import SearchBar from "../../components/SearchBar";
+import SearchBar from "../../components/SearchBar";
 import NavigationBar from "../../components/NavigationBar";
 import ServiceOptions from "../../components/ServiceOptions/ServiceOptions";
 import { useCallback } from "react";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
-import Categories from "../../components/Categories";
+// import Categories from "../../components/Categories";
 import FeaturedRow from "../../components/FeaturedRow";
-import sanityClient from "../../../sanity";
+import client from "../../../sanity";
 
 SplashScreen.preventAutoHideAsync();
 const HomeScreen = () => {
@@ -33,6 +33,14 @@ const HomeScreen = () => {
   //       setFeaturedCategories(data);
   //     });
   // }, []);
+
+  async function fetchData() {
+    const data = await client.fetch(`*[_type == "featured"] {...}`);
+    // Do something with the fetched data
+    console.log(data);
+  }
+
+  fetchData();
 
   const onRefresh = React.useCallback(() => {
     setRefreshing(true);
@@ -70,7 +78,7 @@ const HomeScreen = () => {
           />
         }
       >
-        <View className="m-[10%]">
+        <View className="mt-[10%] ml-[10%]">
           <Text
             style={{ fontFamily: "Uber-Bold" }}
             className="text-[#F4FEFD] text-2xl drop-shadow-2xl"
@@ -85,9 +93,9 @@ const HomeScreen = () => {
           </Text>
         </View>
 
-        {/* <View className="w-screen items-center">
+        <View className="w-screen items-center mb-[5%]">
           <SearchBar placeholder={"Search"} />
-        </View> */}
+        </View>
 
         <ServiceOptions />
 

@@ -1,4 +1,5 @@
 import { createClient } from "@sanity/client";
+// import "react-native-url-polyfill/auto";
 // import imageUrlBuilder from "@sanity/image-url";
 
 // sanity.js
@@ -13,10 +14,18 @@ export const client = createClient({
   // token: process.env.SANITY_SECRET_TOKEN // Only if you want to update content with the client
 });
 
-const data = await client.fetch(`*[_type == "featured"]{
-  ...,
-}`);
-console.log(`Number of documents: ${data}`);
+// async function fetchData() {
+//   const data = await client.fetch(`*[_type == "featured"] {...}`);
+//   // Do something with the fetched data
+//   console.log(data);
+// }
+
+// Call the async function
+// fetchData();
+
+// const data = await client.fetch(`*[_type == "featured"]{
+// ...,}`);
+// console.log(`Number of documents: ${data}`);
 
 // const builder = imageUrlBuilder(myConfiguredSanityClient);
 

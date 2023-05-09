@@ -20,10 +20,10 @@ function urlFor(source) {
 }
 
 // uses GROQ to query content: https://www.sanity.io/docs/groq
-// export async function getPosts() {
-//   const posts = await client.fetch('*[_type == "post"]')
-//   return posts
-// }
+export async function getPosts() {
+  const posts = await client.fetch('*[_type == "post"]');
+  return posts;
+}
 
 // export async function createPost(post: Post) {
 //   const result = client.create(post)

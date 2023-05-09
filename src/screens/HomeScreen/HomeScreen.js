@@ -6,7 +6,7 @@ import {
   ScrollView,
   RefreshControl,
 } from "react-native";
-// import SearchBar from "../../components/SearchBar";
+import SearchBar from "../../components/SearchBar";
 import NavigationBar from "../../components/NavigationBar";
 import ServiceOptions from "../../components/ServiceOptions/ServiceOptions";
 import { useCallback } from "react";
@@ -79,8 +79,6 @@ const HomeScreen = () => {
           />
         }
       >
-        {/* <SearchBar placeholder={"Search"} /> */}
-
         <View className="m-[10%]">
           <Text
             style={{ fontFamily: "Uber-Bold" }}
@@ -95,6 +93,11 @@ const HomeScreen = () => {
             By students, for students
           </Text>
         </View>
+
+        {/* <View className="w-screen items-center">
+          <SearchBar placeholder={"Search"} />
+        </View> */}
+
         <ServiceOptions />
 
         {/* <View>

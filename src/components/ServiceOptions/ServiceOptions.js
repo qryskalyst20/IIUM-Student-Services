@@ -55,7 +55,7 @@ const ServiceOptions = () => {
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <TouchableOpacity
-            className="p-2 m-2 h-36 w-64 bg-[#0EF6CC] rounded-2xl flex items-center justify-center"
+            className="p-2 m-2 h-36 w-64 bg-[#0EF6CC] rounded-2xl flex-col items-center justify-center"
             onPress={() => navigation.navigate(item.screen)}
           >
             <Image
@@ -67,12 +67,21 @@ const ServiceOptions = () => {
                 margin: 0,
               }}
             />
-            <Text
-              className="text-[#1B2223] drop-shadow-2xl"
-              style={{ fontFamily: "Uber-Medium" }}
-            >
-              {item.title}
-            </Text>
+            <View className="flex-row w-full space-evenly">
+              <Text
+                className="text-[#1B2223] flex-1 mx-4"
+                style={{ fontFamily: "Uber-Bold", fontSize: 15 }}
+              >
+                {item.title}
+              </Text>
+              <Icon
+                style={{ width: 50, height: 50, marginHorizontal: 1 }}
+                name="right"
+                color="black"
+                type="antdesign"
+              />
+            </View>
+
             {/* <View className="bg-black p-2 rounded-full w-10 mt-4">
               <Icon name="arrowright" color="white" type="antdesign" />
             </View> */}

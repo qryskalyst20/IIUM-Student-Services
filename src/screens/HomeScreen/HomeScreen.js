@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   SafeAreaView,
   View,
@@ -6,7 +6,7 @@ import {
   ScrollView,
   RefreshControl,
 } from "react-native";
-import SearchBar from "../../components/SearchBar";
+// import SearchBar from "../../components/SearchBar";
 import NavigationBar from "../../components/NavigationBar";
 import ServiceOptions from "../../components/ServiceOptions/ServiceOptions";
 import { useCallback } from "react";
@@ -14,7 +14,7 @@ import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import Categories from "../../components/Categories";
 import FeaturedRow from "../../components/FeaturedRow";
-// import sanityClient from "../../../sanity";
+import sanityClient from "../../../sanity";
 
 SplashScreen.preventAutoHideAsync();
 const HomeScreen = () => {
@@ -22,26 +22,17 @@ const HomeScreen = () => {
   // const [featuredCategories, setFeaturedCategories] = useState([]);
 
   // useEffect(() => {
-  //   sanityClient
+  //   client
   //     .fetch(
   //       `
-  //   *[_type == "featured" && _id == $id]{
-  //     ...,
-  //     cafe[]->{
-  //       ...,
-  //       dishes[]->,
-  //       type->{
-  //         name
-  //       }
-  //     },
-  //   }[0]
-  //   `,
-  //       { id }
+  //   *[_type == "featured"]{
+  //     ...,}
+  //   `
   //     )
   //     .then((data) => {
-  //       setCafe(data?.cafe);
+  //       setFeaturedCategories(data);
   //     });
-  // });
+  // }, []);
 
   const onRefresh = React.useCallback(() => {
     setRefreshing(true);
@@ -82,13 +73,13 @@ const HomeScreen = () => {
         <View className="m-[10%]">
           <Text
             style={{ fontFamily: "Uber-Bold" }}
-            className="text-white text-2xl drop-shadow-2xl"
+            className="text-[#F4FEFD] text-2xl drop-shadow-2xl"
           >
             IIUM Community Services
           </Text>
           <Text
             style={{ fontFamily: "Uber-Medium" }}
-            className="text-white drop-shadow-2xl"
+            className="text-[#F4FEFD] drop-shadow-2xl"
           >
             By students, for students
           </Text>
@@ -107,10 +98,10 @@ const HomeScreen = () => {
         <View>
           <FeaturedRow
             id="1"
-            title="Featured"
-            description="Paid placements from our partners"
+            title="Best Deals!"
+            description="Students favourite choice!"
           />
-          <FeaturedRow
+          {/* <FeaturedRow
             id="12"
             title="Tasty Discounts!"
             description="Everyone's been enjoying these juicy discounts!"
@@ -119,7 +110,7 @@ const HomeScreen = () => {
             id="123"
             title="Offers near you!"
             description="Why not support your local restaurant tonight!"
-          />
+          /> */}
         </View>
 
         <View className="absolute bottom-0">

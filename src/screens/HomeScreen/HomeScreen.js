@@ -14,30 +14,34 @@ import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import Categories from "../../components/Categories";
 import FeaturedRow from "../../components/FeaturedRow";
-import sanityClient from "../../../sanity";
+// import sanityClient from "../../../sanity";
 
 SplashScreen.preventAutoHideAsync();
 const HomeScreen = () => {
   const [refreshing, setRefreshing] = React.useState(false);
-  const [featuredCategories, setFeaturedCategories] = useState([]);
+  // const [featuredCategories, setFeaturedCategories] = useState([]);
 
-  useEffect(() => {
-    sanityClient.fetch(
-      `
-    *[_type == "featured" && _id == $id]{
-      ...,
-      cafe[]->{
-        ...,
-        dishes[]->,
-        type->{
-          name
-        }
-      },
-    }[0]
-    `,
-      { id }
-    );
-  });
+  // useEffect(() => {
+  //   sanityClient
+  //     .fetch(
+  //       `
+  //   *[_type == "featured" && _id == $id]{
+  //     ...,
+  //     cafe[]->{
+  //       ...,
+  //       dishes[]->,
+  //       type->{
+  //         name
+  //       }
+  //     },
+  //   }[0]
+  //   `,
+  //       { id }
+  //     )
+  //     .then((data) => {
+  //       setCafe(data?.cafe);
+  //     });
+  // });
 
   const onRefresh = React.useCallback(() => {
     setRefreshing(true);
@@ -76,27 +80,26 @@ const HomeScreen = () => {
         }
       >
         {/* <SearchBar placeholder={"Search"} /> */}
-        <View className="bg-[#30D5C8] pb-6 w-screen">
-          <View className="m-[10%]">
-            <Text
-              style={{ fontFamily: "Uber-Bold" }}
-              className="text-white text-2xl drop-shadow-2xl"
-            >
-              IIUM Community Services
-            </Text>
-            <Text
-              style={{ fontFamily: "Uber-Medium" }}
-              className="text-white drop-shadow-2xl"
-            >
-              By students, for students
-            </Text>
-          </View>
-          <ServiceOptions />
-        </View>
 
-        <View>
-          <Categories />
+        <View className="m-[10%]">
+          <Text
+            style={{ fontFamily: "Uber-Bold" }}
+            className="text-white text-2xl drop-shadow-2xl"
+          >
+            IIUM Community Services
+          </Text>
+          <Text
+            style={{ fontFamily: "Uber-Medium" }}
+            className="text-white drop-shadow-2xl"
+          >
+            By students, for students
+          </Text>
         </View>
+        <ServiceOptions />
+
+        {/* <View>
+          <Categories />
+        </View> */}
 
         <View>
           <FeaturedRow

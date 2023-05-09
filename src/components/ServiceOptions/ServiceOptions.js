@@ -55,15 +55,20 @@ const ServiceOptions = () => {
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <TouchableOpacity
-            className="p-2 m-2 w-auto bg-[#4ce2d6] rounded-2xl flex items-center justify-center"
+            className="p-2 m-2 h-36 w-64 bg-[#0EF6CC] rounded-2xl flex items-center justify-center"
             onPress={() => navigation.navigate(item.screen)}
           >
             <Image
               source={{ uri: item.image }}
-              style={{ width: 50, height: 50, resizeMode: "contain" }}
+              style={{
+                width: 120,
+                height: 120,
+                resizeMode: "contain",
+                margin: 0,
+              }}
             />
             <Text
-              className="text-white drop-shadow-2xl mt-2"
+              className="text-[#1B2223] drop-shadow-2xl"
               style={{ fontFamily: "Uber-Medium" }}
             >
               {item.title}

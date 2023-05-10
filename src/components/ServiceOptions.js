@@ -34,8 +34,8 @@ const ServiceOptions = () => {
   const navigation = useNavigation();
 
   const [fontsLoaded] = useFonts({
-    "Uber-Bold": require("../../../assets/fonts/UberMoveBold.otf"),
-    "Uber-Medium": require("../../../assets/fonts/UberMoveMedium.otf"),
+    "Uber-Bold": require("../../assets/fonts/UberMoveBold.otf"),
+    "Uber-Medium": require("../../assets/fonts/UberMoveMedium.otf"),
   });
 
   const onLayoutRootView = useCallback(async () => {

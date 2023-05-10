@@ -4,7 +4,7 @@ import { Icon } from "@rneui/themed";
 import { useCallback } from "react";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
-import CafeCard from "../CafeCard";
+import CafeCard from "./CafeCard";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -19,8 +19,8 @@ const FeaturedRow = ({ id, title, description }) => {
   }, []);
 
   const [fontsLoaded] = useFonts({
-    "Uber-Bold": require("../../../assets/fonts/UberMoveBold.otf"),
-    "Uber-Medium": require("../../../assets/fonts/UberMoveMedium.otf"),
+    "Uber-Bold": require("../../assets/fonts/UberMoveBold.otf"),
+    "Uber-Medium": require("../../assets/fonts/UberMoveMedium.otf"),
   });
 
   const onLayoutRootView = useCallback(async () => {

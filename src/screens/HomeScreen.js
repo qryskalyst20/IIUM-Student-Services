@@ -6,15 +6,15 @@ import {
   ScrollView,
   RefreshControl,
 } from "react-native";
-import SearchBar from "../../components/SearchBar";
-import NavigationBar from "../../components/NavigationBar";
-import ServiceOptions from "../../components/ServiceOptions/ServiceOptions";
+import SearchBar from "../components/SearchBar";
+import NavigationBar from "../components/NavigationBar";
+import ServiceOptions from "../components/ServiceOptions";
 import { useCallback } from "react";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 // import Categories from "../../components/Categories";
-import FeaturedRow from "../../components/FeaturedRow";
-import { client } from "../../../sanity";
+import FeaturedRow from "../components/FeaturedRow";
+import { client } from "../../sanity";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -55,8 +55,8 @@ const HomeScreen = () => {
   }, []);
 
   const [fontsLoaded] = useFonts({
-    "Uber-Bold": require("../../../assets/fonts/UberMoveBold.otf"),
-    "Uber-Medium": require("../../../assets/fonts/UberMoveMedium.otf"),
+    "Uber-Bold": require("../../assets/fonts/UberMoveBold.otf"),
+    "Uber-Medium": require("../../assets/fonts/UberMoveMedium.otf"),
   });
 
   const onLayoutRootView = useCallback(async () => {

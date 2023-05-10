@@ -14,33 +14,38 @@ import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 // import Categories from "../../components/Categories";
 import FeaturedRow from "../../components/FeaturedRow";
-import client from "../../../sanity";
+import { client } from "../../../sanity";
 
 SplashScreen.preventAutoHideAsync();
+
 const HomeScreen = () => {
   const [refreshing, setRefreshing] = React.useState(false);
-  // const [featuredCategories, setFeaturedCategories] = useState([]);
+  const [featuredCategories, setFeaturedCategories] = useState([]);
 
-  // useEffect(() => {
-  //   client
-  //     .fetch(
-  //       `
-  //   *[_type == "featured"]{
-  //     ...,}
-  //   `
-  //     )
-  //     .then((data) => {
-  //       setFeaturedCategories(data);
-  //     });
-  // }, []);
+  useEffect(() => {
+    client
+      .fetch(
+        `
+    *[_type == "featured"]{
+      ...,}
+    `
+      )
+      .then((data) => {
+        setFeaturedCategories(data);
+      });
+  }, []);
 
-  async function fetchData() {
-    const data = await client.fetch(`*[_type == "featured"] {...}`);
-    // Do something with the fetched data
-    console.log(data);
-  }
+  // ------WORKING FUNCTION(FOR REFERENCE DONT TOUCH)-----
+  //
+  // async function fetchData() {
+  //   const data = await client.fetch(`*[_type == "featured"] {...}`);
+  //   // Do something with the fetched data
+  //   console.log(data);
+  // }
 
-  fetchData();
+  // fetchData();
+  //
+  // ------WORKING FUNCTION(FOR REFERENCE DONT TOUCH)-----
 
   const onRefresh = React.useCallback(() => {
     setRefreshing(true);
@@ -65,7 +70,10 @@ const HomeScreen = () => {
   }
 
   return (
-    <SafeAreaView onLayout={onLayoutRootView} className="flex-1 bg-[#121212]">
+    <SafeAreaView
+      onLayout={onLayoutRootView}
+      className="flex-1 min-h-screen bg-[#121212]"
+    >
       <ScrollView
         className="flex-1"
         contentContainerStyle={{ flexGrow: 1 }}
@@ -94,7 +102,7 @@ const HomeScreen = () => {
         </View>
 
         <View className="w-screen items-center mb-[5%]">
-          <SearchBar placeholder={"Search"} />
+          <SearchBar placeholder={"Search your order!"} />
         </View>
 
         <ServiceOptions />
@@ -102,6 +110,16 @@ const HomeScreen = () => {
         {/* <View>
           <Categories />
         </View> */}
+
+        {/* {featuredCategories?.map(
+          (category) = (
+            <FeaturedRow>
+              {" "}
+              key={category._id} id={category._id} title={category.name}{" "}
+              description={category.short_description}{" "}
+            </FeaturedRow>
+          ))
+        )} */}
 
         <View>
           <FeaturedRow

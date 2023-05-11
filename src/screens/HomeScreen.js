@@ -14,6 +14,8 @@ import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 // import Categories from "../../components/Categories";
 import FeaturedRow from "../components/FeaturedRow";
+import TransportOption from "../components/TransportOption";
+import CustomPopup from "../components/CustomPopup";
 import { client } from "../../sanity";
 
 SplashScreen.preventAutoHideAsync();
@@ -106,6 +108,7 @@ const HomeScreen = () => {
         </View>
 
         <ServiceOptions />
+        <TransportOption />
 
         {/* <View>
           <Categories />
@@ -127,21 +130,21 @@ const HomeScreen = () => {
             title="Best Deals!"
             description="Students favourite choice!"
           />
-          {/* <FeaturedRow
-            id="12"
-            title="Tasty Discounts!"
-            description="Everyone's been enjoying these juicy discounts!"
-          />
           <FeaturedRow
+            id="12"
+            title="Your Favourite Cafe!"
+            description="Taste every food from various cafe!"
+          />
+          {/* <FeaturedRow
             id="123"
             title="Offers near you!"
             description="Why not support your local restaurant tonight!"
           /> */}
         </View>
 
-        <View className="absolute bottom-0">
+        {/* <View className="absolute bottom-0">
           <NavigationBar />
-        </View>
+        </View> */}
       </ScrollView>
     </SafeAreaView>
   );

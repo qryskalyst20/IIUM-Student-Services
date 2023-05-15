@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { View, Text, StyleSheet, ScrollView } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
+import React from "react";
 import {
   Menu,
   MenuProvider,
@@ -15,73 +15,42 @@ const CustomPopup = () => {
     />
   );
 
-  const [selectedOption, setSelectedOption] = useState("Choose your mahallah");
-
-  const handleOptionSelect = (option) => {
-    setSelectedOption(option);
-  };
-
-  const data = [
-    {
-      id: 1,
-      name: "Mahallah Bilal",
-    },
-    {
-      id: 2,
-      name: "Mahallah Ali",
-    },
-    {
-      id: 3,
-      name: "Mahallah Siddiq",
-    },
-    {
-      id: 4,
-      name: "Mahallah Farouq",
-    },
-    {
-      id: 5,
-      name: "Mahallah Usman",
-    },
-    {
-      id: 6,
-      name: "Mahallah Aminah",
-    },
-    {
-      id: 7,
-      name: "Mahallah Ruqayyah",
-    },
-    {
-      id: 8,
-      name: "Mahallah Aisyah",
-    },
-  ];
-
   return (
-    <MenuProvider className="bg-[#212121] p-2 rounded-xl w-[50%]">
+    <MenuProvider style={styles.container}>
       <Menu>
         <MenuTrigger
-          text={selectedOption}
+          text="Click for Option menu"
           customStyles={{
-            triggerText: {
-              color: "white",
+            triggerWrapper: {
+              top: -20,
             },
           }}
         />
-        <MenuOptions>
-          <ScrollView style={{ height: 200 }}>
-            {data.map((item) => (
-              <MenuOption
-                key={item.key}
-                onSelect={() => handleOptionSelect(item.name)}
-              >
-                <Text>{item.name}</Text>
-              </MenuOption>
-            ))}
-          </ScrollView>
+        <MenuOptions customStyles={{ optionsContainer: styles.menuOptions }}>
+          <MenuOption onSelect={() => alert(`Save`)} text="Save" />
+          <MenuOption onSelect={() => alert(`Delete`)} text="Delete" />
+          <MenuOption onSelect={() => alert(`Delete`)} text="Delete" />
+          <MenuOption onSelect={() => alert(`Delete`)} text="Delete" />
+          <MenuOption onSelect={() => alert(`Delete`)} text="Delete" />
+          <MenuOption onSelect={() => alert(`Delete`)} text="Delete" />
         </MenuOptions>
       </Menu>
     </MenuProvider>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 30,
+    flexDirection: "column",
+  },
+  menuOptions: {
+    zIndex: 9999,
+  },
+});
 
 export default CustomPopup;

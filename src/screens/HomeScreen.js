@@ -108,7 +108,7 @@ const HomeScreen = () => {
         </View>
 
         <ServiceOptions />
-        <TransportOption />
+        {/* <CustomPopup /> */}
 
         {/* <View>
           <Categories />
